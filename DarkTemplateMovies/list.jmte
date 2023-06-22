@@ -23,7 +23,11 @@
 		${foreach movies movie}
 		<div class="movie" data-id="${if movie.imdbId}${movie.imdbId}${else}${movie.dbId}${end}" id="${movie.imdbId}" data-title="${movie.titleSortable} ${movie.year}">
 			<a href="movies/${movie;filename(escape=true)}.html">
-				<img data-src="images/${movie;copyArtwork(type=BANNER, thumb=false, width=750, escape=true)}" class="poster" loading="lazy"/>
+				${if movie.artworkUrls.BANNER}
+				<img data-src="images/${movie;copyArtwork(type=BANNER, thumb=false, width=250, escape=true, default=../nopicture.gif))}" class="banner" loading="lazy"/>
+				${else}
+				<img data-src="banner.png" class="banner" loading="lazy"/>
+				${end}
 				<img data-src="images/${movie;copyArtwork(type=POSTER, thumb=true, width=250, escape=true, default=../nopicture.gif)}" class="poster" loading="lazy"/>
 			</a>
 			<p><a href="movies/${movie;filename(escape=true)}.html">${movie.title}</a></p>

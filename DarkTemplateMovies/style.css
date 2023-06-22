@@ -48,10 +48,14 @@ a:hover {
 .top-button {
     display: block;
     position: absolute;
-    padding: .15em;
+    padding-top: .15em;
     width: 100%;
     background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0));
     font-size: 1.5em;
+}
+
+.top-button > .icon {
+	padding-left: 0.15em;
 }
 
 .movies {
@@ -71,6 +75,14 @@ a:hover {
 
 .poster {
     border: 1px rgba(255,255,255,.3) solid;
+	width: 230px;
+	height: 344px;
+}
+
+.banner {
+    border: 1px rgba(255,255,255,.3) solid;
+	width: 230px;
+	height: 42px;
 }
 
 .movie p {

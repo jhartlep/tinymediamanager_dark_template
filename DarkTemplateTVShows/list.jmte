@@ -22,8 +22,12 @@
 	<div class="shows" id="shows">
 		${foreach tvShows show}
 		<div class="show" data-id="${if show.imdbId}${show.imdbId}${else}${show.dbId}${end}" id="${show.imdbId}" data-title="${show.titleSortable} ${show.year}">
-			<img data-src="images/${show;copyArtwork(type=BANNER, thumb=false, width=750, escape=true)}" class="poster" loading="lazy"/>
 			<a href="${show.title} (${show.year})/tvshow.html">
+				${if show.artworkUrls.BANNER}
+				<img data-src="images/${show;copyArtwork(type=BANNER, thumb=false, width=750, escape=true)}" class="banner" loading="lazy"/>
+				${else}
+				<img data-src="banner.png" class="banner" loading="lazy"/>
+				${end}
 				<img data-src="images/${show;copyArtwork(type=POSTER, thumb=true, width=250, escape=true, default=../nopicture.gif)}" class="poster" loading="lazy"/>
 			</a>
 			<p><a href="shows/${show;filename(escape=true)}.html">${show.title}</a></p>
