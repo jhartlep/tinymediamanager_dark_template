@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tinyMediaManager Movies and TV Shows Export</title>
+	<style>
+	body {
+		background: black;
+		color: rgba(255,255,255,.73);
+		font-size: .95em;
+		font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",'Open Sans',sans-serif;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	#navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #f1f1f1;
+		z-index: 999; /* Stellt sicher, dass die Navigationsleiste über dem iFrame angezeigt wird */
+    }
+    
+	#navbar a {
+		float: left;
+		display: block;
+		color: #333;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 18px;
+	}
+    
+    #navbar a:hover {
+		background-color: #ddd;
+    }
+    
+    #mainBlock {
+		position: fixed;
+		top: 56px; /* Höhe der Navigationsleiste + 10px Platz */
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border: none;
+		width: 100vw;
+		height: 100vh;
+		display: block;
+    }
+	</style>
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+</head>
+<body>
+  <div id="navbar">
+    <a href="#" onclick="changeContent('movies/movielist.html')">Movies</a>
+    <a href="#" onclick="changeContent('tvshows/tvshows.html')">TV Shows</a>
+  </div>
+  <iframe id="mainBlock" src="movies/movielist.html"></iframe>
+
+    <script>
+        function changeContent(url) {
+            document.getElementById("mainBlock").src = url;
+        }
+    </script>
+</body>
+</html>
